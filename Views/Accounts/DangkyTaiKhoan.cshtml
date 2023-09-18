@@ -1,0 +1,49 @@
+﻿@model EcommerceV1.ViewModels.RegisterVM
+
+@{
+    ViewData["Title"] = "DangkyTaiKhoan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="margin: 0 auto" class="col-lg-6 pt-10 mt-5 pt-lg-0 d-flex">
+    <form asp-action="DangkyTaiKhoan">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="login-form">
+            <h4 class="login-title text-center">Đăng Ký Tài Khoản</h4>
+            <div class="row">
+                <div class=" col-md-12 mb-2">
+                    <label class="mb-1">Họ Và Tên</label>
+                    <input type="text" asp-for="FullName" class="mb-1" placeholder="First Name">
+                    <span  asp-validation-for="FullName" class="text-danger text-sm"></span>
+                </div>
+                
+                <div class="col-md-12 mb-2">
+                    <label class="mb-1">Địa chỉ Email*</label>
+                    <input type="email"asp-for="Email" placeholder="Email Address" class="mb-1">
+                    <span asp-validation-for="Email" class="text-danger text-sm"></span>
+                </div>
+
+                <div class="col-md-12 mb-2">
+                    <label class="mb-1">Số Điện Thoại*</label>
+                    <input type="number" asp-for="Phone" placeholder="Phone Number" class="mb-1">
+                    <span asp-validation-for="Phone" class="text-danger text-sm"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="mb-1">Mật Khẩu</label>
+                    <input type="password" asp-for="Password" placeholder="Password" class="mb-1">
+                    <span asp-validation-for="Password" class="text-danger text-sm"></span>
+                </div>
+                <div class="col-md-6">
+                    <label class="mb-1">Nhập Lại Mật Khẩu</label>
+                    <input type="password" asp-for="ConfirmPassword" placeholder="Confirm Password" class="mb-1">
+                    <span asp-validation-for="ConfirmPassword" class="text-danger text-sm"></span>
+                </div>
+                <div class="col-12 mt-3">
+                    <button class="btn btn-custom-size lg-size btn-secondary btn-primary-hover rounded-0">Register</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

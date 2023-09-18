@@ -1,0 +1,34 @@
+﻿@model EcommerceV1.Models.Role
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="table-responsive card">
+    <table class="table table-bordered card-body">
+       
+        <tbody class="col-sm-2">
+             <tr>
+                <td class = "col-sm-2" scope="col">Role name</td>
+                <td class="col-sm-6">@Model.RoleName</td>
+            </tr>
+            <tr>
+                <td class = "" scope="col">Description</td>
+                <td>@Model.Description</td>
+                
+            </tr>
+            <tr>
+                 <td class = "" scope="col">Confirm </td>
+                 <td> 
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="RoleId" />
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                    </form>
+                </td>
+            </tr>
+           
+        </tbody>
+    </table>
+</div
+

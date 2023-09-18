@@ -1,0 +1,39 @@
+﻿@model EcommerceV1.Models.Role
+
+@{
+    ViewData["Title"] = "Detail Roles";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="page-header">
+    <h2 class="header-title">Chi tiết quyền truy cập</h2>
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-action="Index"  class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
+            <a class="breadcrumb-item" href="#">Danh sách quyền truy cập</a>
+            <span class="breadcrumb-item active">Chi tiết quyền truy cập</span>
+        </nav>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+
+        <div class="form-group">
+            <label class="font-weight-semibold" for="productName">Role Id</label>
+            <input type="text" class="form-control" id="productName" placeholder="Product Name" value="@Model.RoleId">
+        </div>
+        <div class="form-group">
+            <label class="font-weight-semibold" for="productName">Role Name</label>
+            <input type="text" class="form-control" id="productName" placeholder="Product Name" value="@Model.RoleName">
+        </div>
+        <div class="form-group">
+            <label class="font-weight-semibold" for="productPrice">Description</label>
+            <input type="text" class="form-control" id="productPrice" placeholder="Price" value="@Model.Description">
+        </div>
+
+
+
+        <a asp-action="Index" class="btn btn-secondary m-r-5">Back </a>
+    </div>
+</div>
+
+

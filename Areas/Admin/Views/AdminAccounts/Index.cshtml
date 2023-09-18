@@ -1,0 +1,88 @@
+﻿@model IEnumerable<EcommerceV1.Models.Account>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@*main-content*@
+<div class="">
+    <div class="page-header">
+        <div class="header-sub-title">
+            <nav class="breadcrumb breadcrumb-dash">
+                <a asp-area="Admin" asp-controller="Home" asp-action="Index"><i class="anticon anticon-home m-r-5"></i>Home</a>
+                <span>Danh sách tài khoản</span>
+             
+            </nav>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="row m-b-30">
+                <div class="col-lg-8">
+                    <div class="d-md-flex">
+                        <div class="m-b-10 m-r-15">
+                            <select class="custom-select" id="id_role" name"id_role" style="min-width: 200px;" asp-items="ViewBag.RoleData">
+                                <option value="0" selected>Quyền truy cập</option>
+                            </select>
+                        </div>
+                        <div class="m-b-10">
+                            <select class="custom-select" id="id_status" name"id_status" style="min-width: 180px;" asp-items="ViewBag.IsStatus">
+                                <option value="0" selected>Trạng thái</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-right">
+                    <button class="btn ">
+                        <i class="anticon anticon-plus-circle m-r-5"></i>
+                        <a asp-action="Create">Tạo tài khoản</a>
+                    </button>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover e-commerce-table">
+                    <thead>
+                        <tr>
+                           
+                            <th>Họ Tên</th>
+                            <th>Số Điện Thoại</th>
+                            <th>Email</th>
+                           
+                            <th>Quyền</th>
+                            <th>Trạng Thái</th>
+                            <th>Last Login</th>
+
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img class="img-fluid rounded" src="assets/images/others/thumb-9.jpg" style="max-width: 60px" alt="">
+                                        <h6 class="m-b-0 m-l-10">@item.FullName</h6>
+                                    </div>
+                                </td>
+                                <td>@item.Phone</td>
+                                <td>@item.Email</td>
+                                <td>@item?.Role?.RoleName</td>
+
+                                <td>
+                                    @(item.Active == true ? "Đã kích hoạt" : "Chưa kích hoạt")
+                                </td>
+                                <td>@item.LastLogin</td>
+                                <td class="text-left">
+                                    <a asp-area="Admin" asp-action="Edit" asp-route-id="@item.AccountId" asp-controller="AdminAccounts" class="btn btn-tone btn-primary m-r-5">  <i class="anticon anticon-edit"></i></a>
+                                    <a asp-area="Admin" asp-action="Details" asp-route-id="@item.AccountId" asp-controller="AdminAccounts" class="btn btn-tone btn-info m-r-5">  <i class="anticon anticon-eye"></i></a>
+                                    <a asp-area="Admin" asp-action="Delete" asp-route-id="@item.AccountId" asp-controller="AdminAccounts" class="btn btn-tone btn-danger m-r-5"><i class="anticon anticon-delete"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

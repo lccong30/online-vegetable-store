@@ -1,0 +1,42 @@
+﻿
+@model List<Product>
+@if(Model != null)
+{
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.ProductId
+            </td>
+            <td>
+                @item.ProductName
+            </td>
+            <td>
+                @*@item.Price  == null ? 0 : @item.Price.Value.ToString("#,##0") VND*@
+                @if (item.Price == null)
+                {
+                    @Html.Raw("0")
+                }
+                else
+                {
+                    @Html.Raw(item.Price.Value.ToString("#,##0"))
+                } VND
+            </td>
+            <td>@item?.Cat?.CatName</td>
+            <td>
+                @item.UnitsInStock
+            </td>
+            <td>@(item.UnitsInStock > 0 ? "Còn hàng" : "Hết Hàng") </td>
+
+            <td class="text-right">
+
+                <a asp-area="Admin" asp-action="Details" asp-route-id="@item.ProductId" asp-controller="AdminProducts" class="btn btn-tone btn-info m-r-5"> <i class="anticon anticon-eye"> </i></a>
+
+                <a asp-area="Admin" asp-action="Delete" asp-route-id="@item.ProductId" asp-controller="AdminProducts" class="btn btn-tone btn-danger m-r-5"> <i class="anticon anticon-delete"> </i></a>
+
+                <a asp-area="Admin" asp-action="Edit" asp-route-id="@item.ProductId" asp-controller="AdminProducts" class="btn btn-tone btn-primary m-r-5"> <i class="anticon anticon-edit"> </i></a>
+
+            </td>
+        </tr>
+    }
+}
