@@ -54,4 +54,3 @@
 - Đọc các bài viết thông tin về rau củ, trái cây và dinh dưỡng.
 - Cập nhật các mẹo về sức khỏe và công thức mới nhất.
 
-Hãy trải nghiệm một trải nghiệm mua sắm tiện lợi và thú vị tại Cửa Hàng Rau Củ Trực Tuyến của chúng tôi. Cho dù bạn là một khách hàng tìm kiếm rau củ tươi ngon hay một quản trị viên quản lý cửa hàng, chúng tôi đã sẵn sàng phục vụ bạn!
